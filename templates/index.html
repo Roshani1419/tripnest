@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="home">
+
+<!-- Video Slider -->
+
+<video class="video-slide active" autoplay muted loop>
+<source src="{% static 'videos/Ladakh.mp4.' %}" type="video/mp4">
+</video>
+
+<video class="video-slide" autoplay muted loop>
+<source src="{% static 'videos/Lakshwadeep.mp4' %}" type="video/mp4">
+</video>
+
+<video class="video-slide" autoplay muted loop>
+<source src="{% static 'videos/Rajasthan.mp4' %}" type="video/mp4">
+</video>
+
+<video class="video-slide" autoplay muted loop>
+<source src="{% static 'videos/Rameshwaram.mp4' %}" type="video/mp4">
+</video>
+
+<!-- Slider Content -->
+
+<div class="content active">
+<h1>Ladakh</h1>
+<p>A cold desert famous for its mountains and beautiful lakes.🏔️</p>
+<a href="/book/">
+<button class="btn">Book Now</button>
+</a>
+</div>
+
+<div class="content">
+<h1>Lakshwadeep</h1>
+<p>A group of beautiful islands in the Arabian Sea. 🏝️</p>
+</div>
+
+<div class="content">
+<h1>Rajasthan</h1>
+<p>A state in India famous for its deserts, forts, and royal culture.🏜️🏰</p>
+</div>
+
+<div class="content">
+<h1>Rameshwaram</h1>
+<p>A famous holy place in Tamil Nadu.🛕</p>
+</div>
+
+<!-- Slider Buttons -->
+
+<div class="slider-nav">
+
+<div class="nav-btn active"></div>
+<div class="nav-btn"></div>
+<div class="nav-btn"></div>
+<div class="nav-btn"></div>
+
+</div>
+
+
+</section>
+
+
+{% endblock %}
+
+
+<!-- Review Section -->
+<section id="reviews" style="padding:50px 0; background:#f9f9f9;">
+  <h2 style="text-align:center; margin-bottom:40px;">What Our Customers Say</h2>
+
+  <div class="review-slider">
+    {% for review in reviews %}
+      <div class="review-card">
+        <img src="{% static review.image %}" alt="{{review.name}}">
+        <h3>{{review.name}}</h3>
+        <p class="role">{{review.role}}</p>
+        <p class="rating">
+          {% for i in "12345"|slice:":review.rating"|make_list %}
+            ⭐
+          {% endfor %}
+        </p>
+        <p class="comment">"{{review.comment}}"</p>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Dots -->
+  <div class="dots-container"></div>
+</section>
+
+<style>
+.review-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.review-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.review-card {
+  min-width: 250px;
+  flex: 0 0 auto;
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  scroll-snap-align: start;
+}
+
+.review-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.review-card .role {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.review-card .rating {
+  color: gold;
+  margin-bottom: 10px;
+}
+
+.review-card .comment {
+  font-style: italic;
+  color: #555;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .review-card{
+    min-width: 200px;
+  }
+}
+
+@media(max-width:480px){
+  .review-card{
+    min-width: 180px;
+  }
+}
+</style>

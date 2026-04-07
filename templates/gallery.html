@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="gallery">
+
+<h1 class="heading">Our Gallery</h1>
+
+<div class="gallery-container">
+
+<!-- Goa -->
+<div class="gallery-card">
+<img src="{% static 'images/Ladakh1.jpeg' %}" alt="Ladakh">
+<div class="overlay">Ladakh Tour</div>
+</div>
+
+<div class="gallery-card">
+<img src="{% static 'images/Ladakh2.jpeg' %}" alt="Ladakh">
+<div class="overlay">Ladakh Adventure</div>
+</div>
+
+<!-- Manali -->
+<div class="gallery-card">
+<img src="{% static 'images/Lakshwadeep1.jpeg' %}" alt="Lakshwadeep">
+<div class="overlay">Lakshwadeep Tour</div>
+</div>
+
+<div class="gallery-card">
+<img src="{% static 'images/Lakshwadeep2.jpeg' %}" alt="Lakshwadeep">
+<div class="overlay">Scuba diving</div>
+</div>
+
+<!-- Kerala -->
+<div class="gallery-card">
+<img src="{% static 'images/Rajasthan1.jpeg' %}" alt="Rajasthan">
+<div class="overlay">Rajasthan Tour</div>
+</div>
+
+<div class="gallery-card">
+<img src="{% static 'images/Rajasthan2.jpeg' %}" alt="Rajasthan">
+<div class="overlay">Rajasthan Thar Desert</div>
+</div>
+
+<!-- Jaipur -->
+<div class="gallery-card">
+<img src="{% static 'images/Rameshwaram1.jpeg' %}" alt="Rameshwaram">
+<div class="overlay">Rameshwaram Temple</div>
+</div>
+
+<div class="gallery-card">
+<img src="{% static 'images/Rameshwaram2.jpeg' %}" alt="Rameshwaram">
+<div class="overlay">Rameshwaram Tour</div>
+</div>
+
+
+</div>
+
+</section>
+
+{% endblock %}

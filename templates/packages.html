@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="packages">
+
+<h1 class="heading">Our Packages</h1>
+
+<div class="package-container">
+
+<!-- Ladakh -->
+<div class="package-card">
+<img src="{% static 'images/Ladakh.jpeg' %}" alt="Ladakh">
+
+<h3>Ladakh Tour</h3>
+<p>5 Days / 4 Nights</p>
+<h4>₹30,000</h4>
+
+<a href="{% url 'package_detail' 'Ladakh' %}" class="btn">View Details</a>
+</div>
+
+<!-- Lakshwadeep -->
+<div class="package-card">
+<img src="{% static 'images/Lakshwadeep.jpeg' %}" alt="Lakshwadeep">
+
+<h3>Lakshwadeep Tour</h3>
+<p>5 Days / 4 Nights</p>
+<h4>₹35,000</h4>
+
+<a href="{% url 'package_detail' 'Lakshwadeep' %}" class="btn">View Details</a>
+</div>
+
+<!-- Rajasthan -->
+<div class="package-card">
+<img src="{% static 'images/Rajasthan.jpeg' %}" alt="Rajasthan">
+
+<h3>Rajasthan Tour</h3>
+<p>6 Days / 5 Nights</p>
+<h4>₹20,000</h4>
+
+<a href="{% url 'package_detail' 'Rajasthan' %}" class="btn">View Details</a>
+</div>
+
+<!-- Rameshwaram -->
+<div class="package-card">
+<img src="{% static 'images/Rameshwaram.jpeg' %}" alt="Rameshwaram">
+
+<h3>Rameshwaram Tour</h3>
+<p>5 Days / 4 Nights</p>
+<h4>₹25,000</h4>
+
+<a href="{% url 'package_detail' 'Rameshwaram' %}" class="btn">View Details</a>
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}
+
+<a href="{% url 'package_detail' 'Ladakh' %}" class="btn">View Details</a>
+<a href="{% url 'package_detail' 'Lakshwadeep' %}" class="btn">View Details</a>
+<a href="{% url 'package_detail' 'Rajasthan' %}" class="btn">View Details</a>
+<a href="{% url 'package_detail' 'Rameshwaram' %}" class="btn">View Details</a>

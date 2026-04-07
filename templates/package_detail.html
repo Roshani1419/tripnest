@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="tour-details">
+
+<h1 class="title">{{ name }} Tour Package</h1>
+
+<div class="tour-info">
+
+<h3>Duration: {{ package.duration }}</h3>
+
+<h2 class="price">Price: {{ package.price }}</h2>
+
+<h3>Itinerary</h3>
+
+<ul class="itinerary">
+{% for day in package.itinerary %}
+<li>{{ day }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'book_package' %}" class="btn">Book Now</a>
+
+</div>
+
+</section>
+
+{% endblock %}
+
+{% if user.is_authenticated %}
+
+<a href="{% url 'book_package' %}" class="book-btn">Book Now</a>
+
+{% else %}
+
+<a href="{% url 'login' %}" class="book-btn">Login to Book</a>
+
+{% endif %}

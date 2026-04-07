@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="services">
+
+<h1 class="heading">Our Services</h1>
+
+<div class="services-container">
+
+{% for service in services %}
+
+<div class="service-card">
+
+<div class="icon">{{ service.icon }}</div>
+
+<h3>{{ service.title }}</h3>
+
+<p>{{ service.description }}</p>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</section>
+
+{% endblock %}

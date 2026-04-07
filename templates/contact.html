@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Us</title>
+
+<style>
+
+body{
+font-family: Arial;
+margin:0;
+padding:0;
+}
+
+.contact-section{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+padding:50px;
+background:#f4f4f4;
+}
+
+.contact-info{
+flex:1;
+min-width:300px;
+padding:30px;
+}
+
+.contact-form{
+flex:1;
+min-width:300px;
+padding:30px;
+background:white;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.contact-form input,
+.contact-form textarea{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:1px solid #ccc;
+}
+
+.contact-form button{
+background:#ff6600;
+color:white;
+border:none;
+padding:12px 20px;
+cursor:pointer;
+}
+
+.contact-form button:hover{
+background:#e65c00;
+}
+
+@media(max-width:768px){
+
+.contact-section{
+flex-direction:column;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="contact-section">
+
+<div class="contact-info">
+
+<h2>Contact Us</h2>
+
+<p>📍 Location: Hubli, Karnataka</p>
+<p>📞 Phone: +91 9739928489</p>
+<p>📧 Email: roshanirangrej4@gmail.com</p>
+
+<p>
+We are available 24/7 for your travel support.  
+Feel free to contact us for bookings and packages.
+</p>
+
+</div>
+
+<div class="contact-form">
+
+<form method="POST">
+{% csrf_token %}
+
+<input type="text" name="name" placeholder="Your Name" required>
+
+<input type="email" name="email" placeholder="Your Email" required>
+
+<input type="text" name="subject" placeholder="Subject" required>
+
+<textarea name="message" rows="5" placeholder="Your Message"></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+</div>
+
+</section>
+
+</body>
+</html>
