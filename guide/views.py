@@ -97,7 +97,9 @@ def book_package(request):
         #SUCCESS MESSAGE
         messages.success(request, "Booking Successfull")
 
-        return redirect('success.html')
+        return redirect('index')
+
+    return render(request, "book.html")
     
 
 # ---------------- CONTACT ----------------
