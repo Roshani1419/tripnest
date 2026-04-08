@@ -130,21 +130,68 @@ def contact(request):
 
 
 # ---------------- PACKAGE DETAIL ----------------
-def package_detail(request, name):
+ddef package_detail(request, name):
 
     packages = {
-        "Ladakh": {"duration": "5 Days", "price": "₹30,000"},
-        "Lakshwadeep": {"duration": "5 Days", "price": "₹35,000"},
-        "Rajasthan": {"duration": "6 Days", "price": "₹25,000"},
-        "Rameshwaram": {"duration": "5 Days", "price": "₹20,000"},
+
+        "Ladakh": {
+            "duration": "5 Days",
+            "price": "₹30,000",
+            "itinerary": [
+                "Day 1: Arrival at Leh",
+                "Day 2: Nubra Valley Visit",
+                "Day 3: Pangong Lake Tour",
+                "Day 4: Local Sightseeing",
+                "Day 5: Departure"
+            ]
+        },
+
+        "Lakshwadeep": {
+            "duration": "5 Days",
+            "price": "₹35,000",
+            "itinerary": [
+                "Day 1: Island Arrival",
+                "Day 2: Beach Exploration",
+                "Day 3: Water Sports Activities",
+                "Day 4: Resort Relaxation",
+                "Day 5: Return Journey"
+            ]
+        },
+
+        "Rajasthan": {
+            "duration": "6 Days",
+            "price": "₹25,000",
+            "itinerary": [
+                "Day 1: Jaipur City Tour",
+                "Day 2: Amer Fort & Hawa Mahal",
+                "Day 3: Jodhpur Visit",
+                "Day 4: Jaisalmer Desert Safari",
+                "Day 5: Cultural Night & Folk Dance",
+                "Day 6: Departure"
+            ]
+        },
+
+        "Rameshwaram": {
+            "duration": "5 Days",
+            "price": "₹20,000",
+            "itinerary": [
+                "Day 1: Arrival & Temple Visit",
+                "Day 2: Dhanushkodi Sightseeing",
+                "Day 3: Ramanathaswamy Temple Darshan",
+                "Day 4: Local Beach Exploration",
+                "Day 5: Departure"
+            ]
+        }
     }
 
     package = packages.get(name)
 
-    return render(request, "package_detail.html",
-                  {"package": package, "name": name})
-
-
+    return render(
+        request,
+        "package_detail.html",
+        {"package": package, "name": name}
+    )
+    
 # ---------------- SEARCH ----------------
 def search_place(request):
 
