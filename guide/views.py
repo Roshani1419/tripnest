@@ -94,15 +94,6 @@ def book_package(request):
             date=date
         )
 
-        # Send confirmation email (optional)
-        send_mail(
-            "Booking Successful ✈️",
-            f"Hi {name}, your {package} trip booking is confirmed. Happy Journey!",
-            "roshanirangrej4@gmail.com",
-            [email],
-            fail_silently=True,
-        )
-
         # Show success page
         return render(request, "booking_success.html")
 
