@@ -93,7 +93,7 @@ def book_package(request):
             date=date
         )
         
-        return redirect(request,"success.html")
+        return redirect(request,"booking_success.html")
 
     return render(request, "book.html")
     
