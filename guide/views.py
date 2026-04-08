@@ -108,7 +108,7 @@ Date: {date}
             ["roshanirangrej@gmail.com"],
             fail_silently=False,
         )
-    expect Expection as e:
+    except Expection as e:
          print (e)
     
     messages.success(request, "Booking Successful")
