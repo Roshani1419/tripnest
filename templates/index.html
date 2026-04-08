@@ -153,3 +153,18 @@
   }
 }
 </style>
+
+
+{% if messages %}
+    {% for message in messages %}
+        <div style="
+            background:green;
+            color:white;
+            padding:10px;
+            text-align:center;
+            font-weight:bold;
+        ">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}

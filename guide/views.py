@@ -92,35 +92,13 @@ def book_package(request):
             package=package,
             date=date
         )
-
-        send_mail(
-            "New Tour Booking",
-            f"""
-New Booking Received 
-
-Name: {name}
-Email: {email}
-Phone: {phone}
-Package: {package}
-Date: {date}
-""",
-            "roshanirangrej4@gmail.com",
-            ["roshanirangrej@gmail.com"],
-            fail_silently=False,
-        )
-    try:
-        # your booking logic
         booking.save()
+        
+        #SUCCESS MESSAGE
+        messages.success(request, "Booking Successfull")
 
+        return redirect('success.html')
     
-    messages.success(request, "Booking Successful")
-
-    except Exception as e:
-        print (e)
-
-
-    return render(request, "index.html")
-
 
 # ---------------- CONTACT ----------------
 def contact(request):
