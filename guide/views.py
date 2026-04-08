@@ -47,6 +47,10 @@ def book_package(request):
             date=date
         )
 
+        return redirect('index')
+    
+    return render(request, 'book.html')
+
         # Send email to admin
         send_mail(
             "New Tour Booking",
