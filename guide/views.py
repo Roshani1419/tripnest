@@ -108,13 +108,18 @@ Date: {date}
             ["roshanirangrej@gmail.com"],
             fail_silently=False,
         )
-    except Expection as e:
-         print (e)
+    try:
+        # your booking logic
+        booking.save()
+
     
     messages.success(request, "Booking Successful")
 
+    except Exception as e:
+        print (e)
 
-    return render(request, "book.html")
+
+    return render(request, "index.html")
 
 
 # ---------------- CONTACT ----------------
