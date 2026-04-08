@@ -92,12 +92,8 @@ def book_package(request):
             package=package,
             date=date
         )
-        booking.save()
         
-        #SUCCESS MESSAGE
-        messages.success(request, "Booking Successfull")
-
-        return redirect('index')
+        return redirect(request,"success.html")
 
     return render(request, "book.html")
     
