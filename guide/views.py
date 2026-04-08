@@ -113,3 +113,25 @@ def contact(request):
         return render(request, "contact_success.html")
 
     return render(request, "contact.html")
+
+    def search_place(request):
+
+    if request.method == "GET":
+        query = request.GET.get("q")
+
+        if query:
+            query = query.lower()
+
+            if query == "ladakh":
+                return redirect("package_detail", name="Ladakh")
+
+            elif query == "lakshwadeep":
+                return redirect("package_detail", name="Lakshwadeep")
+
+            elif query == "rajasthan":
+                return redirect("package_detail", name="Rajasthan")
+
+            elif query == "rameshwaram":
+                return redirect("package_detail", name="Rameshwaram")
+
+    return redirect("home")
