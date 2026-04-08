@@ -110,8 +110,9 @@ Date: {date}
         )
     expect Expection as e:
          print (e)
+    
+    messages.success(request, "Booking Successful")
 
-        return render("request, success.html")
 
     return render(request, "book.html")
 
