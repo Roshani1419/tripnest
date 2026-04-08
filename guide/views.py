@@ -85,6 +85,7 @@ def book_package(request):
         package = request.POST.get("package")
         date = request.POST.get("date")
 
+        # Save booking
         Booking.objects.create(
             name=name,
             email=email,
@@ -92,11 +93,20 @@ def book_package(request):
             package=package,
             date=date
         )
-        
-        return render(request,"booking_success.html")
+
+        # Send confirmation email (optional)
+        send_mail(
+            "Booking Successful ✈️",
+            f"Hi {name}, your {package} trip booking is confirmed. Happy Journey!",
+            "roshanirangrej4@gmail.com",
+            [email],
+            fail_silently=True,
+        )
+
+        # Show success page
+        return render(request, "booking_success.html")
 
     return render(request, "book.html")
-    
 
 # ---------------- CONTACT ----------------
 def contact(request):
