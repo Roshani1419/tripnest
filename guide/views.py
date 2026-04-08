@@ -95,13 +95,21 @@ def book_package(request):
 
         send_mail(
             "New Tour Booking",
-            f"Booking from {name}\nEmail:{email}\nPhone:{phone}\nPackage:{package}\nDate:{date}",
-            "your_email@gmail.com",
-            ["your_email@gmail.com"],
-            fail_silently=True,
+            f"""
+New Booking Received 
+
+Name: {name}
+Email: {email}
+Phone: {phone}
+Package: {package}
+Date: {Date}
+""",
+            "roshanirangrej4@gmail.com",
+            ["roshanirangrej@gmail.com"],
+            fail_silently=False,
         )
 
-        return redirect("home")
+        return render("request, success.html")
 
     return render(request, "book.html")
 
