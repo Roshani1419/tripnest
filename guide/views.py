@@ -57,7 +57,7 @@ def book_package(request):
             "New booking from {name}\nEmail: {email}\nPhone: {phone}\nPackage: {package}\nDate: {date}",
             "roshanirangrej4@gmail.com",
             ["roshanirangrej4@gmail.com"],
-            fail_silently=True,
+            fail_silently=False,
         )
 
         return render(request, "success.html")
