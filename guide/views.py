@@ -3,15 +3,16 @@ from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-
 from .models import Booking, Contact, Brand
 
 
+# ---------------- HOME ----------------
 def home(request):
     brands = Brand.objects.all()
     return render(request, "index.html", {"brands": brands})
 
 
+# ---------------- AUTH ----------------
 def register_user(request):
     if request.method == "POST":
         username = request.POST.get("username")
@@ -23,6 +24,7 @@ def register_user(request):
             email=email,
             password=password
         )
+
         return redirect("login")
 
     return render(request, "register.html")
@@ -38,6 +40,9 @@ def login_user(request):
         if user:
             login(request, user)
             return redirect("home")
+        else:
+            return render(request, "login.html",
+                          {"error": "Invalid username or password"})
 
     return render(request, "login.html")
 
@@ -47,6 +52,7 @@ def logout_user(request):
     return redirect("home")
 
 
+# ---------------- PAGES ----------------
 def packages(request):
     return render(request, "packages.html")
 
@@ -63,6 +69,11 @@ def about(request):
     return render(request, "about.html")
 
 
+def reviews(request):
+    return render(request, "reviews.html")
+
+
+# ---------------- BOOKING ----------------
 @login_required(login_url="login")
 def book_package(request):
 
@@ -83,21 +94,23 @@ def book_package(request):
         )
 
         send_mail(
-            "New Booking",
-            f"{name} booked {package}",
-            "admin@gmail.com",
-            ["admin@gmail.com"],
+            "New Tour Booking",
+            f"Booking from {name}\nEmail:{email}\nPhone:{phone}\nPackage:{package}\nDate:{date}",
+            "your_email@gmail.com",
+            ["your_email@gmail.com"],
             fail_silently=True,
         )
 
-        return render(request, "success.html")
+        return redirect("home")
 
     return render(request, "book.html")
 
 
+# ---------------- CONTACT ----------------
 def contact(request):
 
     if request.method == "POST":
+
         name = request.POST.get("name")
         email = request.POST.get("email")
         subject = request.POST.get("subject")
@@ -110,13 +123,40 @@ def contact(request):
             message=message
         )
 
+        send_mail(
+            subject,
+            message,
+            email,
+            ["your_email@gmail.com"],
+            fail_silently=True,
+        )
+
         return render(request, "contact_success.html")
 
     return render(request, "contact.html")
 
-    def search_place(request):
+
+# ---------------- PACKAGE DETAIL ----------------
+def package_detail(request, name):
+
+    packages = {
+        "Ladakh": {"duration": "5 Days", "price": "₹30,000"},
+        "Lakshwadeep": {"duration": "5 Days", "price": "₹35,000"},
+        "Rajasthan": {"duration": "6 Days", "price": "₹25,000"},
+        "Rameshwaram": {"duration": "5 Days", "price": "₹20,000"},
+    }
+
+    package = packages.get(name)
+
+    return render(request, "package_detail.html",
+                  {"package": package, "name": name})
+
+
+# ---------------- SEARCH ----------------
+def search_place(request):
 
     if request.method == "GET":
+
         query = request.GET.get("q")
 
         if query:
