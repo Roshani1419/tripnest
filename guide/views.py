@@ -108,6 +108,8 @@ Date: {date}
             ["roshanirangrej@gmail.com"],
             fail_silently=False,
         )
+    expect Expection as e:
+         print (e)
 
         return render("request, success.html")
 
