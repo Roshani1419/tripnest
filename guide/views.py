@@ -102,7 +102,7 @@ Name: {name}
 Email: {email}
 Phone: {phone}
 Package: {package}
-Date: {Date}
+Date: {date}
 """,
             "roshanirangrej4@gmail.com",
             ["roshanirangrej@gmail.com"],
