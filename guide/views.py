@@ -130,7 +130,7 @@ def contact(request):
 
 
 # ---------------- PACKAGE DETAIL ----------------
-ddef package_detail(request, name):
+def package_detail(request, name):
 
     packages = {
 
