@@ -58,7 +58,18 @@ def packages(request):
 
 
 def services(request):
-    return render(request, "services.html")
+    services_list = [
+        {"icon": "🌍", "title": "Travel Planning", "description": "Plan your trips efficiently and stress-free."},
+        {"icon": "💻", "title": "Web Development", "description": "Create stunning websites for personal or business use."},
+        {"icon": "📸", "title": "Photography", "description": "Capture your memories professionally."},
+        {"icon": "✈️", "title": "Flight Booking", "description": "Book flights to your dream destinations with ease."},
+        {"icon": "🏨", "title": "Hotel Booking", "description": "Find and reserve the best hotels for your stay."},
+        {"icon": "🛶", "title": "Adventure Tours", "description": "Exciting activities for thrill-seekers."},
+        {"icon": "🍽️", "title": "Food & Dining", "description": "Discover the best restaurants and cuisines."},
+        {"icon": "🚌", "title": "Local Transport", "description": "Reliable transportation within your destination."},
+    ]
+
+    return render(request, "services.html", {"services": services_list})
 
 
 def gallery(request):
