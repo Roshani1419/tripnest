@@ -1,45 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
 <section class="services">
-    <h1>Our Services</h1>
-    <div class="service-cards">
-        <div class="card">
-            <div class="emoji">🏨</div>
-            <h2>Hotel Booking</h2>
-            <p>Find the best hotels at affordable prices with instant confirmation.</p>
-        </div>
-        <div class="card">
-            <div class="emoji">🧑‍✈️</div>
-            <h2>Tour Guide</h2>
-            <p>Experienced guides to make your travel smooth and fun.</p>
-        </div>
-        <div class="card">
-            <div class="emoji">🚗</div>
-            <h2>Transport</h2>
-            <p>Private cars, buses, and bikes for all your travel needs.</p>
-        </div>
-        <div class="card">
-            <div class="emoji">📦</div>
-            <h2>Custom Packages</h2>
-            <p>Create personalized travel packages based on your preferences.</p>
-        </div>
-        <div class="card">
-            <div class="emoji">🍽️</div>
-            <h2>Food & Dining</h2>
-            <p>Experience local cuisines and gourmet dining options.</p>
-        </div>
-        <div class="card">
-            <div class="emoji">📸</div>
-            <h2>Photography</h2>
-            <p>Professional photography services to capture your memories.</p>
-        </div>
-        <div class="card">
-            <div class="emoji">🏞️</div>
-            <h2>Activities & Tours</h2>
-            <p>Adventure activities and sightseeing tours for all ages.</p>
-        </div>
-        <div class="card">
-            <div class="emoji">🛎️</div>
-            <h2>24/7 Support</h2>
-            <p>Round-the-clock support for all your travel needs and emergencies.</p>
-        </div>
-    </div>
+
+<h1 class="heading">Our Services</h1>
+
+<div class="services-container">
+
+{% for service in services %}
+
+<div class="service-card">
+
+<div class="icon">{{ service.icon }}</div>
+
+<h3>{{ service.title }}</h3>
+
+<p>{{ service.description }}</p>
+
+</div>
+
+{% endfor %}
+
+</div>
+
 </section>
+
+{% endblock %}
