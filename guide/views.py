@@ -4,7 +4,7 @@ from django.core.mail import send_mail
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from .models import Booking, Contact, Brand
-
+from django.conf import settings
 
 # ---------------- HOME ----------------
 def home(request):
@@ -114,31 +114,20 @@ def book_package(request):
 def contact(request):
 
     if request.method == "POST":
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
 
-        name = request.POST.get("name")
-        email = request.POST.get("email")
-        subject = request.POST.get("subject")
-        message = request.POST.get("message")
+        print(name, email, subject, message)
 
-        Contact.objects.create(
-            name=name,
-            email=email,
-            subject=subject,
-            message=message
-        )
+        return redirect('contact_success')
 
-        send_mail(
-            subject,
-            message,
-            email,
-            ["your_email@gmail.com"],
-            fail_silently=True,
-        )
+    return render(request, 'contact.html')
 
-        return render(request, "contact_success.html")
 
-    return render(request, "contact.html")
-
+def contact_success(request):
+    return render(request, 'contact_success.html')
 
 # ---------------- PACKAGE DETAIL ----------------
 def package_detail(request, name):

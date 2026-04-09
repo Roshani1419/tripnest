@@ -85,7 +85,7 @@ Feel free to contact us for bookings and packages.
 
 <div class="contact-form">
 
-<form method="POST">
+<form method="POST" action="{% url 'contact' %}">
 {% csrf_token %}
 
 <input type="text" name="name" placeholder="Your Name" required>
